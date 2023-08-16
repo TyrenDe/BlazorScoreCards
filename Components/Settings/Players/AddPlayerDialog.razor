@@ -1,0 +1,16 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudTextField
+            @ref="textField"
+            FullWidth="true"
+            Required="true"
+            AutoFocus="true"
+            @bind-Value="@PlayerName"
+            @onkeydown="HandleKeyDown"
+            Label="Player or Team Name"/>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="AddPlayer">Ok</MudButton>
+    </DialogActions>
+</MudDialog>

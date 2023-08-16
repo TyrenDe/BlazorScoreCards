@@ -1,0 +1,19 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<MudDrawer Open="@NavBarState.Value.DrawerOpen" OpenChanged="@OpenChanged">
+    <MudNavMenu>
+        <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
+        <MudNavGroup Title="Games" Icon="@Icons.Material.Filled.VideogameAsset" Expanded="true">
+            <MudNavLink Href="/games/generic" Match="NavLinkMatch.Prefix">Generic</MudNavLink>
+        </MudNavGroup>
+
+        <MudNavGroup Title="Settings" Icon="@Icons.Material.Filled.Settings" Expanded="true">
+            <MudNavLink Href="/settings/players" Match="NavLinkMatch.Prefix">Players</MudNavLink>
+            <div class="mud-nav-item">
+                <div class="mud-nav-link">
+                    <MudSwitch T="bool" Checked="@ThemeState.Value.IsDarkMode" Color="Color.Primary" CheckedChanged="@DarkModeCheckedChanged">Dark Mode</MudSwitch>
+                </div>
+            </div>
+        </MudNavGroup>
+    </MudNavMenu>
+</MudDrawer>

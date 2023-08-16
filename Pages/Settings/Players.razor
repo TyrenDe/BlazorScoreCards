@@ -1,0 +1,33 @@
+﻿@page "/settings/players"
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<PageTitle>Players</PageTitle>
+
+<MudList>
+    @if (PlayersState.Value.IsLoading)
+    {
+        <MudText>Loading...</MudText>
+    }
+    else
+    {
+        <MudChip Icon="@Icons.Material.Filled.Add" Text="Add Player" OnClick="@ShowAddPlayerDialog" />
+
+        @if (PlayersState.Value.Players.Count() == 0)
+        {
+            <MudText>Add players above!</MudText>
+        }
+        else
+        {
+            @foreach (var player in PlayersState.Value.Players)
+            {
+                <MudListItem Dense="true" DisableGutters="true">
+                    <MudStack Row="true" AlignItems="AlignItems.Center">
+                        <MudCheckBox T="bool" Checked="player.IsSelected" CheckedChanged="((e) => TogglePlayer(player.PlayerName))" />
+                        <MudText>@player.PlayerName</MudText>
+                        <MudIconButton Icon="@Icons.Material.Filled.Delete" OnClick="((e) => DeletePlayer(player.PlayerName))" />
+                    </MudStack>
+                </MudListItem>
+            }
+        }
+    }
+</MudList>

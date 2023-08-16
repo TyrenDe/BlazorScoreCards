@@ -1,0 +1,18 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudTextField
+            @ref="textField"
+            T="string"
+            InputType="InputType.Number"
+            FullWidth="true"
+            Required="true"
+            AutoFocus="true"
+            @bind-Value="@Score"
+            @onkeydown="HandleKeyDown"
+            Label="Points" />
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="UpdateScore">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
