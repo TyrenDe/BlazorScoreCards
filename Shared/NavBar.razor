@@ -1,6 +1,6 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<MudDrawer Open="@NavBarState.Value.DrawerOpen" OpenChanged="@OpenChanged" ClipMode="DrawerClipMode.Docked">
+<MudDrawer Open="@NavBarState.Value.DrawerOpen" OpenChanged="@OpenChanged" ClipMode="DrawerClipMode.Docked" Anchor="Anchor.Right">
     <MudNavMenu>
         <MudNavLink Href="" Match="NavLinkMatch.All">Home</MudNavLink>
         <MudNavGroup Title="Games" Icon="@Icons.Material.Filled.VideogameAsset" Expanded="true">

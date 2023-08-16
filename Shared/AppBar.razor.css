@@ -1,6 +1,10 @@
 ﻿::deep .md-fab-bottom-left {
     position: fixed !important;
-    bottom: 15px;
-    left: 15px;
+    bottom: 5px;
+    right: 5px;
     z-index: 10000;
+}
+
+::deep .md-fab-faded {
+    opacity: 0.5;
 }
