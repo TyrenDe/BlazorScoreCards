@@ -1,0 +1,13 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+@using BlazorScoreCards.Client.Store.Games.Qwixx;
+
+<MudPaper>
+    <MudGrid Spacing="0" Class="pa-2">
+        <MudItem xs="12"><ColorRow Color="QwixxRanks.Red" IsLocked="false" /></MudItem>
+        <MudItem xs="12"><ColorRow Color="QwixxRanks.Yellow" IsLocked="false" /></MudItem>
+        <MudItem xs="12"><ColorRow Color="QwixxRanks.Green" IsLocked="false" /></MudItem>
+        <MudItem xs="12"><ColorRow Color="QwixxRanks.Blue" IsLocked="false" /></MudItem>
+        <MudItem xs="12" Class="mt-5">SCORE ROW HERE</MudItem>
+    </MudGrid>
+</MudPaper>

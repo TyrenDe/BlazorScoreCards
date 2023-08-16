@@ -1,0 +1,23 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<div>
+    <MudGrid Class="@GetClassNames()" Justify="Justify.Center" Spacing="0">
+        @foreach(var number in GetNumbers())
+        {
+            <MudItem xs="1" Class="d-flex flex-column align-center justify-center">
+                <MudButton Class="row-color" Disabled="@IsDisabled(number)" OnClick="@((e) => ScoreNumber(@number))">@GetTextForButton(number)</MudButton>
+            </MudItem>
+        }
+
+        <MudItem xs="1" Class="d-flex flex-column align-center justify-center">
+            @if (QwixxGameState.Value.IsLocked[Color])
+            {
+                <MudIconButton Class="row-color" Icon="@Icons.Material.Filled.Lock" Size="Size.Medium" OnClick="Unlock" />
+            }
+            else
+            {
+                <MudIconButton Class="row-color" Icon="@Icons.Material.Filled.LockOpen" Size="Size.Medium" OnClick="Lock" />
+            }
+        </MudItem>
+    </MudGrid>
+</div>

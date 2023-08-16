@@ -1,6 +1,12 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<MudAppBar>
-    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
-    Blazor Score Cards
-</MudAppBar>
+<div>
+    @if (NavBarState.Value.DrawerOpen)
+    {
+        <MudFab Class="md-fab-bottom-left" Color="Color.Primary" StartIcon="@Icons.Material.Filled.ChevronLeft" Size="Size.Small" OnClick="@ToggleDrawer" />
+    }
+    else
+    {
+        <MudFab Class="md-fab-bottom-left" Color="Color.Primary" StartIcon="@Icons.Material.Filled.ChevronRight" Size="Size.Small" OnClick="@ToggleDrawer" />        
+    }
+</div>

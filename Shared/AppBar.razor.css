@@ -1,0 +1,6 @@
+﻿::deep .md-fab-bottom-left {
+    position: fixed !important;
+    bottom: 15px;
+    left: 15px;
+    z-index: 10000;
+}

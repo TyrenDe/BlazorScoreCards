@@ -1,15 +1,15 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorLayout
 
-<MudThemeProvider IsDarkMode="@ThemeState.Value.IsDarkMode" />
+<MudThemeProvider Theme="@DefaultTheme" IsDarkMode="@ThemeState.Value.IsDarkMode" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
-    <AppBar/>
-    <NavBar/>
+    <NavBar />
     <MudMainContent>
         <div class="ma-4">
             @Body
         </div>
     </MudMainContent>
+    <AppBar />
 </MudLayout>

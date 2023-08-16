@@ -1,10 +1,11 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<MudDrawer Open="@NavBarState.Value.DrawerOpen" OpenChanged="@OpenChanged">
+<MudDrawer Open="@NavBarState.Value.DrawerOpen" OpenChanged="@OpenChanged" ClipMode="DrawerClipMode.Docked">
     <MudNavMenu>
         <MudNavLink Href="" Match="NavLinkMatch.All">Home</MudNavLink>
         <MudNavGroup Title="Games" Icon="@Icons.Material.Filled.VideogameAsset" Expanded="true">
             <MudNavLink Href="games/generic" Match="NavLinkMatch.Prefix">Generic</MudNavLink>
+            <MudNavLink Href="games/qwixx" Match="NavLinkMatch.Prefix">Qwixx</MudNavLink>
         </MudNavGroup>
 
         <MudNavGroup Title="Settings" Icon="@Icons.Material.Filled.Settings" Expanded="true">
