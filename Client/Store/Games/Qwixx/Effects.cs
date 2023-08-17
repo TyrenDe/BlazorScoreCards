@@ -54,6 +54,32 @@ public class Effects
     }
 
     [EffectMethod]
+    public async Task EffectGenericGameState(SetNegativeAction action, IDispatcher dispatcher)
+    {
+        var scores = await LoadScoresAsync();
+
+        var newScores = new Dictionary<QwixxRanks, int[]>(scores.Scores);
+        newScores[QwixxRanks.Negative] = newScores[QwixxRanks.Negative].Concat(new int[] { action.Index }).ToArray();
+
+        scores = scores with { Scores = newScores };
+
+        await UpdateAndDispatchAsync(dispatcher, scores);
+    }
+
+    [EffectMethod]
+    public async Task EffectGenericGameState(ClearNegativeAction action, IDispatcher dispatcher)
+    {
+        var scores = await LoadScoresAsync();
+
+        var newScores = new Dictionary<QwixxRanks, int[]>(scores.Scores);
+        newScores[QwixxRanks.Negative] = newScores[QwixxRanks.Negative].Where(v => v != action.Index).ToArray();
+
+        scores = scores with { Scores = newScores };
+
+        await UpdateAndDispatchAsync(dispatcher, scores);
+    }
+
+    [EffectMethod]
     public async Task EffectGenericGameState(LockValueAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();

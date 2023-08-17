@@ -1,0 +1,39 @@
+﻿@using BlazorScoreCards.Client.Store.Games.Qwixx;
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<div class="row-score">
+    <MudGrid Justify="Justify.SpaceEvenly" Spacing="0">
+        <MudItem xs="5">
+            <MudGrid Justify="Justify.FlexStart" Spacing="2">
+                @for (var index = 0; index < 4; index++)
+                {
+                    var currentIndex = index;
+                    if (IsChecked(currentIndex))
+                    {
+                        <MudItem><MudButton Class="row-score" OnClick="((e) => ToggleNegative(currentIndex))">X</MudButton></MudItem>
+                    }
+                    else
+                    {
+                        <MudItem><MudButton Class="row-score" OnClick="((e) => ToggleNegative(currentIndex))">-5</MudButton></MudItem>
+                    }
+                }
+            </MudGrid>
+        </MudItem>
+
+        <MudItem xs="5">
+            <MudGrid Class="pt-2" Justify="Justify.Center" Spacing="1">
+                <MudItem><MudText Class="row-score row-score-red">@GetScore(QwixxRanks.Red)</MudText></MudItem>
+                <MudItem><MudText Class="row-score row-score-yellow">@GetScore(QwixxRanks.Yellow)</MudText></MudItem>
+                <MudItem><MudText Class="row-score row-score-green">@GetScore(QwixxRanks.Green)</MudText></MudItem>
+                <MudItem><MudText Class="row-score row-score-blue">@GetScore(QwixxRanks.Blue)</MudText></MudItem>
+                <MudItem><MudText Class="ml-4 row-score row-score-negative">@GetScore(QwixxRanks.Negative)</MudText></MudItem>
+            </MudGrid>
+        </MudItem>
+
+        <MudItem xs="2">
+            <MudGrid Justify="Justify.FlexEnd" Spacing="0">
+                <MudItem><MudText Class="mr-5 row-score row-score-total">@GetTotalScore()</MudText></MudItem>
+            </MudGrid>
+        </MudItem>
+    </MudGrid>
+</div>

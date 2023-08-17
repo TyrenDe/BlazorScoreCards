@@ -9,7 +9,6 @@ namespace BlazorScoreCards.Components.Games.Qwixx;
 
 public partial class ColorRow
 {
-    private readonly int[] ScoreMap = { 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78 };
     private readonly IReadOnlyDictionary<ButtonStates, string> ButtonText = new Dictionary<ButtonStates, string>
     {
         { ButtonStates.DoubleScored, "XX" },
@@ -20,10 +19,6 @@ public partial class ColorRow
     [EditorRequired]
     [Parameter]
     public QwixxRanks Color { get; set; }
-
-    [EditorRequired]
-    [Parameter]
-    public bool IsLocked { get; set; }
 
     [Inject]
     private IState<QwixxGameState> QwixxGameState { get; set; } = default!;
@@ -104,10 +99,10 @@ public partial class ColorRow
         {
             if ((isRedOrYellow && number == 12) || (!isRedOrYellow && number == 2))
             {
-                return (ButtonStates.DoubleScored, true);
+                return (ButtonStates.DoubleScored, !QwixxGameState.Value.IsLocked[Color]);
             }
 
-            return (ButtonStates.Scored, highest == number);
+            return (ButtonStates.Scored, !QwixxGameState.Value.IsLocked[Color] && highest == number);
         }
 
         if (QwixxGameState.Value.IsLocked[Color])
