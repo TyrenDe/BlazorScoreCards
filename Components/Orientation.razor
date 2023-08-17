@@ -1,0 +1,14 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+@if (OrientationState.Value.Orientation == Client.Store.Orientation.Orientations.Portrait)
+{
+    @PortraitContent
+}
+else if (OrientationState.Value.Orientation == Client.Store.Orientation.Orientations.Landscape)
+{
+    @LandscapeContent
+}
+else
+{
+    @GetDesktopLayout()
+}

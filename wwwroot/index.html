@@ -66,12 +66,16 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
-    <script>
-        window.setOrientation = (o) => {
-            screen.orientation.lock(o);
-            console.log("orientation set to: " + o);
+<!--     <script>
+        window.getOrientation = (o) => {
+            return 
         }
-    </script>
+
+        screen.orientation.addEventListener("change", (event) => {
+            dotNetReference.invokeMethodAsync('OrientationChanged', window.orientation);
+            console.log(`ScreenOrientation change: ${type}, ${angle} degrees.`);
+        });
+    </script> -->
 </body>
 
 </html>
