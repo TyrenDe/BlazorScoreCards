@@ -4,7 +4,7 @@
     <MudGrid Class="@GetClassNames()" Justify="Justify.Center" Spacing="0">
         @foreach(var number in GetNumbers())
         {
-            <MudItem xs="1" Class="d-flex flex-column align-center justify-center">
+            <MudItem sm="1" xs="12" Class="d-flex flex-column align-center justify-center">
                 <MudButton Class="row-color" Disabled="@IsDisabled(number)" OnClick="@((e) => ScoreNumber(@number))">@GetTextForButton(number)</MudButton>
             </MudItem>
         }

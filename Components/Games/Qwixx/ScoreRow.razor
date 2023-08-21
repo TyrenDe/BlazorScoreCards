@@ -3,7 +3,7 @@
 
 <div class="row-score">
     <MudGrid Justify="Justify.SpaceEvenly" Spacing="0">
-        <MudItem xs="5">
+        <MudItem sm="5" xs="12">
             <MudGrid Justify="Justify.FlexStart" Spacing="2">
                 @for (var index = 0; index < 4; index++)
                 {
@@ -20,19 +20,19 @@
             </MudGrid>
         </MudItem>
 
-        <MudItem xs="5">
-            <MudGrid Class="pt-2" Justify="Justify.Center" Spacing="1">
-                <MudItem><MudText Class="row-score row-score-red">@GetScore(QwixxRanks.Red)</MudText></MudItem>
-                <MudItem><MudText Class="row-score row-score-yellow">@GetScore(QwixxRanks.Yellow)</MudText></MudItem>
-                <MudItem><MudText Class="row-score row-score-green">@GetScore(QwixxRanks.Green)</MudText></MudItem>
-                <MudItem><MudText Class="row-score row-score-blue">@GetScore(QwixxRanks.Blue)</MudText></MudItem>
-                <MudItem><MudText Class="ml-4 row-score row-score-negative">@GetScore(QwixxRanks.Negative)</MudText></MudItem>
+        <MudItem sm="5" xs="12">
+            <MudGrid Class="pt-sm-2 pl-2" Justify="Justify.Center" Spacing="2">
+                <MudItem sm="2" xs="12"><MudText Class="row-score row-score-red">@GetScore(QwixxRanks.Red)</MudText></MudItem>
+                <MudItem sm="2" xs="12"><MudText Class="row-score row-score-yellow">@GetScore(QwixxRanks.Yellow)</MudText></MudItem>
+                <MudItem sm="2" xs="12"><MudText Class="row-score row-score-green">@GetScore(QwixxRanks.Green)</MudText></MudItem>
+                <MudItem sm="2" xs="12"><MudText Class="row-score row-score-blue">@GetScore(QwixxRanks.Blue)</MudText></MudItem>
+                <MudItem sm="2" xs="12"><MudText Class="ml-sm-3 mt-xs-4 row-score row-score-negative">@GetScore(QwixxRanks.Negative)</MudText></MudItem>
             </MudGrid>
         </MudItem>
 
-        <MudItem xs="2">
+        <MudItem sm="2" xs="12">
             <MudGrid Justify="Justify.FlexEnd" Spacing="0">
-                <MudItem><MudText Class="mr-5 row-score row-score-total">@GetTotalScore()</MudText></MudItem>
+                <MudItem><MudText Class="mr-sm-5 mr-n5 row-score row-score-total">@GetTotalScore()</MudText></MudItem>
             </MudGrid>
         </MudItem>
     </MudGrid>
