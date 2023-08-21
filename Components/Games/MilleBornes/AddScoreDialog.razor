@@ -1,0 +1,102 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudSlider Step="25" Min="0" Max="1000" TickMarks="true" TickMarkLabels="TickLabels" @bind-Value="@Distance">Distance: @Distance</MudSlider>
+
+        <MudGrid Spacing="2">
+            <MudItem xs="8">
+                <MudGrid Class="mud-theme-primary border rounded mt-5 pt-2" Spacing="0" Style="height: 217px;">
+                    <MudHidden Breakpoint="Breakpoint.Xs">
+                        <MudItem sm="5"></MudItem>
+                        <MudItem sm="2"><div class="header">Played</div></MudItem>
+                        <MudItem sm="5" Class="header">Coup-fourré</MudItem>
+                    </MudHidden>
+
+                    <MudItem xs="5" Class="header d-flex align-center justify-end">
+                        <MudHidden Breakpoint="Breakpoint.SmAndUp">
+                            R.O.W.
+                        </MudHidden>
+                        <MudHidden Breakpoint="Breakpoint.Xs">
+                            Right of Way
+                        </MudHidden>
+                    </MudItem>
+                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Checked="@PlayedRightOfWay" /></MudItem>
+                    <MudItem xs="4" Class="header d-flex align-center justify-start pl-5">-</MudItem>
+                    <MudItem xs="1"></MudItem>
+
+                    <MudItem xs="5" Class="header d-flex align-center justify-end">
+                        <MudHidden Breakpoint="Breakpoint.SmAndUp">
+                            D.A.
+                        </MudHidden>
+                        <MudHidden Breakpoint="Breakpoint.Xs">
+                            Driving Ace
+                        </MudHidden>
+                    </MudItem>
+                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Checked="@PlayedDrivingAce" /></MudItem>
+                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Checked="@CFDrivingAce" Disabled="@Invert(PlayedDrivingAce)" /></MudItem>
+                    <MudItem xs="1"></MudItem>
+
+                    <MudItem xs="5" Class="header d-flex align-center justify-end">
+                        <MudHidden Breakpoint="Breakpoint.SmAndUp">
+                            E.T.
+                        </MudHidden>
+                        <MudHidden Breakpoint="Breakpoint.Xs">
+                            Extra Tank
+                        </MudHidden>
+                    </MudItem>
+                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Checked="@PlayedExtraTank" /></MudItem>
+                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Checked="@CFExtraTank" Disabled="@Invert(PlayedExtraTank)" /></MudItem>
+                    <MudItem xs="1"></MudItem>
+
+                    <MudItem xs="5" Class="header d-flex align-center justify-end">
+                        <MudHidden Breakpoint="Breakpoint.SmAndUp">
+                            P.P.
+                        </MudHidden>
+                        <MudHidden Breakpoint="Breakpoint.Xs">
+                            Puncture Proof
+                        </MudHidden>
+                    </MudItem>
+                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Checked="@PlayedPunctureProof" /></MudItem>
+                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Checked="@CFPunctureProof" Disabled="@Invert(PlayedPunctureProof)" /></MudItem>
+                    <MudItem xs="1"></MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem xs="4" Style="height: 217px;">
+                <MudGrid Class="mud-theme-secondary border rounded mt-5">
+                    <MudItem xs="12" Class="header d-flex align-center justify-center">
+                        <MudHidden Breakpoint="Breakpoint.SmAndUp">
+                            D.A.
+                        </MudHidden>
+                        <MudHidden Breakpoint="Breakpoint.Xs">
+                            Delayed Action
+                        </MudHidden>
+                        <MudCheckBox T="bool" @bind-Checked="@DelayedAction"/>
+                    </MudItem>
+
+                    <MudItem xs="12" Class="header d-flex align-center justify-center">
+                        <MudHidden Breakpoint="Breakpoint.SmAndUp">
+                            Safe
+                        </MudHidden>
+                        <MudHidden Breakpoint="Breakpoint.Xs">
+                            Safe Trip
+                        </MudHidden>
+                        <MudCheckBox T="bool" @bind-Checked="@SafeTrip" />
+                    </MudItem>
+
+                    <MudItem xs="12" Class="header d-flex align-center justify-center">
+                        <MudHidden Breakpoint="Breakpoint.SmAndUp">
+                            S.O.
+                        </MudHidden>
+                        <MudHidden Breakpoint="Breakpoint.Xs">
+                            Shutout
+                        </MudHidden>
+                        <MudCheckBox T="bool" @bind-Checked="@Shutout" />
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="UpdateScore">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
