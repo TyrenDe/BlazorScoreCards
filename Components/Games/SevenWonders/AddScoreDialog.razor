@@ -1,0 +1,88 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudGrid>
+            <MudItem xs="3">
+                <MudTextField @bind-Value="@Military"
+                              Class="military"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.MilitaryTech"
+                              Variant="Variant.Outlined"
+                              Label="Military" T="int"
+                              InputType="InputType.Number"
+                              InputMode="InputMode.numeric" />
+            </MudItem>
+            <MudItem xs="3">
+                <MudTextField @bind-Value="@Money"
+                              Class="money"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.AttachMoney"
+                              Variant="Variant.Outlined"
+                              Label="Money"
+                              T="int"
+                              InputType="InputType.Number"
+                              InputMode="InputMode.numeric" />
+            </MudItem>
+            <MudItem xs="3">
+                <MudTextField @bind-Value="@Wonders"
+                              Class="wonders"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.StackedLineChart"
+                              Variant="Variant.Outlined"
+                              Label="Wonders"
+                              T="int"
+                              InputType="InputType.Number"
+                              InputMode="InputMode.numeric" />
+            </MudItem>
+            <MudItem xs="3">
+                <MudTextField @bind-Value="@Civic"
+                              Class="civic"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Museum"
+                              Variant="Variant.Outlined"
+                              Label="Civic"
+                              T="int"
+                              InputType="InputType.Number"
+                              InputMode="InputMode.numeric" />
+            </MudItem>
+            <MudItem xs="3">
+                <MudTextField @bind-Value="@Commerce"
+                              Class="commerce"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.ShoppingCart"
+                              Variant="Variant.Outlined"
+                              Label="Commerce"
+                              T="int"
+                              InputType="InputType.Number"
+                              InputMode="InputMode.numeric" />
+            </MudItem>
+            <MudItem xs="3">
+                <MudTextField @bind-Value="@Guild"
+                              Class="guild"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Construction"
+                              Variant="Variant.Outlined"
+                              Label="Guild"
+                              T="int"
+                              InputType="InputType.Number"
+                              InputMode="InputMode.numeric" />
+            </MudItem>
+            <MudItem xs="3">
+                <MudTextField @bind-Value="@Science"
+                              Class="science"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Science"
+                              Variant="Variant.Outlined"
+                              Label="Science"
+                              T="int"
+                              InputType="InputType.Number"
+                              InputMode="InputMode.numeric" />
+            </MudItem>
+
+            <MudItem xs="12" Class="d-flex justify-center"><MudText>Total: @Total</MudText></MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="UpdateScore">Ok</MudButton>
+    </DialogActions>
+</MudDialog>

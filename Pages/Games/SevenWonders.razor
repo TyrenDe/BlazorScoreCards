@@ -1,0 +1,23 @@
+﻿@page "/games/sevenwonders"
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@using BlazorScoreCards.Components.Games.SevenWonders
+
+<PageTitle>7 Wonders</PageTitle>
+
+@if (PlayersState.Value.Players.Where(p => p.IsSelected).Count() == 0)
+{
+    <MudLink Href="settings/players">Go to the Players page and add or enable players.</MudLink>
+}
+else
+{
+    <MudGrid>
+        @foreach(var player in PlayersState.Value.Players.Where(p => p.IsSelected))
+        {
+            <MudItem>
+                <ScoreCard PlayerName="@player.PlayerName" Score="@SevenWondersGameState.Value.GetScore(player.PlayerName)" />
+            </MudItem>
+        }
+    </MudGrid>
+
+    <MudButton Class="mt-5" Color="Color.Primary" Variant="Variant.Filled" OnClick="ResetAll">Reset All</MudButton>
+}

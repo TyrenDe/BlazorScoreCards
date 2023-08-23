@@ -102,3 +102,31 @@ a, .btn-link {
     font-weight: bold;
     font-size: larger;
 }
+
+.military .mud-icon-root.mud-svg-icon {
+    fill: red !important;
+}
+
+.money .mud-icon-root.mud-svg-icon {
+    fill: rosybrown !important;
+}
+
+.wonders .mud-icon-root.mud-svg-icon {
+    fill: silver !important;
+}
+
+.civic .mud-icon-root.mud-svg-icon {
+    fill: blue !important;
+}
+
+.commerce .mud-icon-root.mud-svg-icon {
+    fill: gold !important;
+}
+
+.guild .mud-icon-root.mud-svg-icon {
+    fill: purple !important;
+}
+
+.science .mud-icon-root.mud-svg-icon {
+    fill: green !important;
+}
