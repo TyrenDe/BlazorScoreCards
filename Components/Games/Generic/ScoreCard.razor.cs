@@ -31,6 +31,6 @@ public partial class ScoreCard
         var options = new DialogOptions { CloseOnEscapeKey = true };
         await DialogService.ShowAsync<AddScoreDialog>($"Adjust Score for {PlayerName}", parameters, options);
 
-        DisableButtons = false ;
+        DisableButtons = false;
     }
 }

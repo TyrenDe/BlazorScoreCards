@@ -1,0 +1,110 @@
+﻿<MudDialog>
+    <DialogContent>
+       <MudGrid Spacing="2">
+           <MudItem xs="4" Class="d-flex align-center justify-center">
+               <MudSlider T="int" Min="1" Max="15" @bind-Value="@BidValue">Bid: @BidValue</MudSlider>
+           </MudItem>
+            <MudItem xs="4" Class="d-flex align-center justify-center">
+                <MudSelect T="Trumps" @bind-Value="@UnderTrump" Label="Under Trump" Dense="true">
+                    <MudSelectItem Value="Trumps.Black">Black</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Blue">Blue</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Green">Green</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Red">Red</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Yellow">Yellow</MudSelectItem>
+
+                    <MudSelectItem Value="Trumps.Seven">7</MudSelectItem>
+                    <MudSelectItem Value="Trumps.One">1</MudSelectItem>
+
+                    <MudSelectItem Value="Trumps.Zero">0</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Two">2</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Three">3</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Four">4</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Five">5</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Six">6</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Eight">8</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Nine">9</MudSelectItem>
+
+                    <MudSelectItem Value="Trumps.None">No Trump</MudSelectItem>
+                </MudSelect>
+            </MudItem>
+            <MudItem xs="4" Class="d-flex align-center justify-center">
+                <MudSelect T="Trumps" @bind-Value="@OverTrump" Label="Over Trump">
+                    <MudSelectItem Value="Trumps.Black">Black</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Blue">Blue</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Green">Green</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Red">Red</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Yellow">Yellow</MudSelectItem>
+
+                    <MudSelectItem Value="Trumps.Seven">7</MudSelectItem>
+                    <MudSelectItem Value="Trumps.One">1</MudSelectItem>
+
+                    <MudSelectItem Value="Trumps.Zero">0</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Two">2</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Three">3</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Four">4</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Five">5</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Six">6</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Eight">8</MudSelectItem>
+                    <MudSelectItem Value="Trumps.Nine">9</MudSelectItem>
+
+                    <MudSelectItem Value="Trumps.None">No Trump</MudSelectItem>
+                </MudSelect>
+            </MudItem>
+       </MudGrid>
+
+        <MudGrid Class="mud-theme-primary border rounded mt-5">
+            <MudItem xs="2" Class="header d-flex align-center justify-center">
+                Name
+            </MudItem>
+            <MudItem xs="2" Class="header d-flex align-center justify-center">
+                Chief
+            </MudItem>
+            <MudItem xs="2" Class="header d-flex align-center justify-center">
+                Vice
+            </MudItem>
+            <MudItem xs="2" Class="header d-flex align-center justify-center">
+                Partner
+            </MudItem>
+            <MudItem xs="4" Class="d-flex align-center justify-center">
+                @PointOffset()
+            </MudItem>
+
+            <MudDivider/>
+
+            @foreach (var player in PlayersState.Value.Players.Where(p => p.IsSelected))
+            {
+                <MudItem xs="2" Class="d-flex align-center justify-center">
+                    @player.PlayerName
+                </MudItem>
+                <MudItem xs="2" Class="d-flex align-center justify-center">
+                    <MudCheckBox 
+                        T="bool"
+                        Checked="@IsChief(player.PlayerName)" 
+                        Disabled="@IsChiefDisabled(player.PlayerName)" 
+                        CheckedChanged="(e) => SetChief(e, player.PlayerName)"/>
+                </MudItem>
+                <MudItem xs="2" Class="d-flex align-center justify-center">
+                    <MudCheckBox 
+                        T="bool"
+                        Checked="@IsVice(player.PlayerName)" 
+                        Disabled="@IsViceDisabled(player.PlayerName)"
+                        CheckedChanged="(e) => SetVice(e, player.PlayerName)" />
+                </MudItem>
+                <MudItem xs="2" Class="d-flex align-center justify-center">
+                    <MudCheckBox 
+                        T="bool" 
+                        Checked="@IsPartner(player.PlayerName)" 
+                        Disabled="@IsPartnerDisabled(player.PlayerName)"
+                        CheckedChanged="(e) => SetPartner(e, player.PlayerName)" />
+                </MudItem>
+                <MudItem xs="4" Class="d-flex align-center justify-center">
+                    <MudTextField T="int" Label="Points" InputType="InputType.Number" Text="@GetScoreString(player.PlayerName)" TextChanged="@((e) => SetScore(e, player.PlayerName))"/>
+                </MudItem>
+            }
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="UpdateScore" Disabled="@IsOkDisabled()">Ok</MudButton>
+    </DialogActions>
+</MudDialog>

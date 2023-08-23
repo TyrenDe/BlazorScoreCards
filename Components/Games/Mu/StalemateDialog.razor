@@ -1,0 +1,46 @@
+﻿<MudDialog>
+    <DialogContent>
+       <MudGrid Spacing="2">
+           <MudItem xs="12" Class="d-flex align-center justify-center">
+               <MudSlider T="int" Min="1" Max="15" @bind-Value="@BidValue">Bid: @BidValue</MudSlider>
+           </MudItem>
+
+            <MudItem xs="4" Class="header d-flex align-center justify-center">
+                Name
+            </MudItem>
+            <MudItem xs="4" Class="header d-flex align-center justify-center">
+                On Hook
+            </MudItem>
+            <MudItem xs="4" Class="header d-flex align-center justify-center">
+                Tied
+            </MudItem>
+
+            <MudDivider/>
+
+            @foreach (var player in PlayersState.Value.Players.Where(p => p.IsSelected))
+            {
+                <MudItem xs="4" Class="d-flex align-center justify-center">
+                    @player.PlayerName
+                </MudItem>
+                <MudItem xs="4" Class="d-flex align-center justify-center">
+                    <MudCheckBox 
+                        T="bool"
+                        Checked="@IsLastBidder(player.PlayerName)"
+                                 Disabled="@IsLastBidderDisabled(player.PlayerName)"
+                                 CheckedChanged="(e) => SetLastBidder(e, player.PlayerName)"/>
+                </MudItem>
+                <MudItem xs="4" Class="d-flex align-center justify-center">
+                    <MudCheckBox 
+                        T="bool"
+                        Checked="@IsHighestBidder(player.PlayerName)"
+                                 Disabled="@IsHighestBidderDisabled(player.PlayerName)"
+                        CheckedChanged="(e) => SetHighestBidder(e, player.PlayerName)" />
+                </MudItem>
+            }
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="UpdateScore" Disabled="@IsOkDisabled()">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
