@@ -19,7 +19,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(LoadInitialStateAction action, IDispatcher dispatcher)
+    public async Task EffectQwixxGameState(LoadInitialStateAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -27,7 +27,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(RemoveValueAction action, IDispatcher dispatcher)
+    public async Task EffectQwixxGameState(RemoveValueAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -41,7 +41,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(AddValueAction action, IDispatcher dispatcher)
+    public async Task EffectQwixxGameState(AddValueAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -54,7 +54,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(SetNegativeAction action, IDispatcher dispatcher)
+    public async Task EffectQwixxGameState(SetNegativeAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -67,7 +67,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(ClearNegativeAction action, IDispatcher dispatcher)
+    public async Task EffectQwixxGameState(ClearNegativeAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -80,7 +80,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(LockValueAction action, IDispatcher dispatcher)
+    public async Task EffectQwixxGameState(LockValueAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -93,7 +93,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(UnlockValueAction action, IDispatcher dispatcher)
+    public async Task EffectQwixxGameState(UnlockValueAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -106,7 +106,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(ResetScoresAction action, IDispatcher dispatcher)
+    public async Task EffectQwixxGameState(ResetScoresAction action, IDispatcher dispatcher)
     {
         await _LocalStorageService.RemoveItemAsync(ScoresKey);
 

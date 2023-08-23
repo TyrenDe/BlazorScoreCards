@@ -1,0 +1,53 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+@using BlazorScoreCards.Client.Store.Games.Split;
+
+<MudPaper>
+    <MudGrid>
+        <MudItem xs="6" Class="d-flex justify-end">
+            <MudText Typo="Typo.h5">Total:</MudText>
+        </MudItem>
+
+        <MudItem xs="6">
+            <MudText Typo="Typo.h5">@GetScore()</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="mt-1 mb-1" />
+
+    <MudGrid Spacing="1">
+        <MudItem xs="12" sm="6">
+            <MudGrid Spacing="1">
+                <RankRow Rank="SplitRanks.A" />
+                <RankRow Rank="SplitRanks.K" />
+                <RankRow Rank="SplitRanks.Q" />
+                <RankRow Rank="SplitRanks.J" />
+                <RankRow Rank="SplitRanks.Ten" />
+                <RankRow Rank="SplitRanks.Nine" />
+                <RankRow Rank="SplitRanks.Eight" />
+            </MudGrid>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudGrid Spacing="1">
+                <RankRow Rank="SplitRanks.Seven" />
+                <RankRow Rank="SplitRanks.Six" />
+                <RankRow Rank="SplitRanks.Five" />
+                <RankRow Rank="SplitRanks.Four" />
+                <RankRow Rank="SplitRanks.Three" />
+                <RankRow Rank="SplitRanks.Two" />
+
+                <MudItem xs="4" Class="d-flex align-center justify-start">
+                    <MudButton Class="ml-4" Variant="Variant.Outlined" OnClick="AddNegative">-5</MudButton>
+                </MudItem>
+
+                <MudItem xs="4" Class="d-flex justify-center">
+                    <MudText Typo="Typo.h5">@GetNegativeScore()</MudText>
+                </MudItem>
+
+                <MudItem xs="4" Class="d-flex align-center justify-end">
+                    <MudButton Class="mr-4" Variant="Variant.Outlined" OnClick="RemoveNegative">+5</MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+    </MudGrid>
+</MudPaper>

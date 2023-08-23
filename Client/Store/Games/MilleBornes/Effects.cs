@@ -18,7 +18,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(LoadInitialStateAction action, IDispatcher dispatcher)
+    public async Task EffectMilleBornesGameState(LoadInitialStateAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -26,7 +26,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(UpdateScoreAction action, IDispatcher dispatcher)
+    public async Task EffectMilleBornesGameState(UpdateScoreAction action, IDispatcher dispatcher)
     {
         var scores = await LoadScoresAsync();
 
@@ -43,7 +43,7 @@ public class Effects
     }
 
     [EffectMethod]
-    public async Task EffectGenericGameState(ResetScoresAction action, IDispatcher dispatcher)
+    public async Task EffectMilleBornesGameState(ResetScoresAction action, IDispatcher dispatcher)
     {
         await _LocalStorageService.RemoveItemAsync(ScoresKey);
 
