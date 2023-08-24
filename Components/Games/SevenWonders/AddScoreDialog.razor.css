@@ -1,0 +1,27 @@
+﻿::deep .military .mud-icon-root.mud-svg-icon {
+    fill: red !important;
+}
+
+::deep .money .mud-icon-root.mud-svg-icon {
+    fill: rosybrown !important;
+}
+
+::deep .wonders .mud-icon-root.mud-svg-icon {
+    fill: silver !important;
+}
+
+::deep .civic .mud-icon-root.mud-svg-icon {
+    fill: blue !important;
+}
+
+::deep .commerce .mud-icon-root.mud-svg-icon {
+    fill: gold !important;
+}
+
+::deep .guild .mud-icon-root.mud-svg-icon {
+    fill: purple !important;
+}
+
+::deep .science .mud-icon-root.mud-svg-icon {
+    fill: green !important;
+}

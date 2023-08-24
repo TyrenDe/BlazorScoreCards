@@ -1,4 +1,6 @@
-﻿<MudDialog>
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<MudDialog>
     <DialogContent>
         <MudSlider Step="25" Min="0" Max="1000" TickMarks="true" TickMarkLabels="TickLabels" @bind-Value="@Distance">Distance: @Distance</MudSlider>
 

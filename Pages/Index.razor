@@ -1,14 +1,95 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Game Scorecards</PageTitle>
 
-<MudText Typo="Typo.h6">
-    Welcome to a quick and dirty way to keep track of scores on the go. This site allows you to add players, then
-    track scores for those players in a variety of games.  This is designed to be lightweight and quick to use.
-    It does NOT keep track of stats, players, or games across browser sessions.
+<MudText Typo="Typo.h4">
+    Welcome to Game Scorecards!
 </MudText>
 
-<MudText Typo="Typo.body1">
-    It does use the local browser storage to maintain state to avoid accidentally losing the current session game
-    data.
+<MudText Typo="Typo.subtitle1">
+    Keep track of scores for your favorite games on game day.
+</MudText>
+
+<MudGrid Class="mt-5 mb-5">
+    <MudItem xs="1" sm="4">
+        <MudCard Elevation="4" Style="height: 300px">
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Generic</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body2">This versatile tool proves invaluable for a wide array of games, simplifying the task of scorekeeping among groups of players.</MudText>
+                <MudDivider Class="mt-2 mb-2" />
+                <MudLink Href="games/generic">Play now!</MudLink>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="1" sm="4">
+        <MudCard Elevation="4" Style="height: 300px">
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">7 Wonders</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body2">Experience the wonders of streamlined score management with our dedicated solution tailored for the captivating game of 7 Wonders. Elevate your gameplay as our tool effortlessly handles scorekeeping, allowing you to focus on the strategic depth and marvels of this legendary game.</MudText>
+                <MudDivider Class="mt-2 mb-2" />
+                <MudLink Href="games/sevenwonders">Play now!</MudLink>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="1" sm="4">
+        <MudCard Elevation="4" Style="height: 300px">
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Mille Bornes</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body2">Embark on a journey through the iconic Mille Bornes game with enhanced scorekeeping ease. Our dedicated tool empowers you to fully immerse yourself in the thrill of the road, leaving score management to us. Unleash the excitement of Mille Bornes while we ensure your gameplay remains smooth and focused on the race to victory.</MudText>
+                <MudDivider Class="mt-2 mb-2" />
+                <MudLink Href="games/millebornes">Play now!</MudLink>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="1" sm="4">
+        <MudCard Elevation="4" Style="height: 300px">
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Mü</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body2">Dive into the strategic depths of the card game Mü while we handle the complexities of score tracking. Our purpose-built solution liberates you to fully engage in the cunning tactics and cardplay of Mü, with seamless score management taken care of. Immerse yourself in the game's twists and turns, confident that our tool keeps your focus right where the action is.</MudText>
+                <MudDivider Class="mt-2 mb-2" />
+                <MudLink Href="games/mu">Play now!</MudLink>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="1" sm="4">
+        <MudCard Elevation="4" Style="height: 300px">
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Qwixx</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body2">Enhance your Qwixx game nights with effortless score management courtesy of our specialized tool. Immerse yourself in the exhilarating dice rolls and decision-making that Qwixx offers, while we handle the scorekeeping complexities. Whether you're targeting rows or aiming for the elusive Qwixx bonus, our solution ensures your gameplay flows smoothly, making victory all the more satisfying.</MudText>
+                <MudDivider Class="mt-2 mb-2" />
+                <MudLink Href="games/qwixx">Play now!</MudLink>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="1" sm="4">
+        <MudCard Elevation="4" Style="height: 300px">
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Split</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body2">Delve into the strategic realm of the card game Split with our dedicated score management solution. Immerse yourself in the dynamic cardplay and decision-making that Split offers, while we efficiently handle the intricacies of scorekeeping. Whether you're strategizing your moves or anticipating your opponent's plays, our tool ensures a seamless gameplay experience, allowing you to focus on outwitting your rivals and securing your path to victory.</MudText>
+                <MudDivider Class="mt-2 mb-2" />
+                <MudLink Href="games/split">Play now!</MudLink>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+<MudText Typo="Typo.caption">
+    Note: It does NOT keep track of stats, players, or games across browser sessions. It does use the local browser storage to maintain state to avoid accidentally losing the current session game data.
 </MudText>
