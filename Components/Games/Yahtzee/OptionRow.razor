@@ -1,0 +1,22 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<MudItem xs="6" sm="2" Class="d-flex justify-center">
+    <MudSelect @bind-Value="Value"
+               T="string"
+               Class="@GetClass()"
+               Variant="Variant.Outlined"
+               Label="@GetLabel()">
+        @foreach (var opt in GetOptions())
+        {
+            <MudSelectItem T="string"
+                           Value="@opt.Value">@opt.Text</MudSelectItem>
+        }
+    </MudSelect>
+    @* <MudTextField @bind-Value="Value"
+    Class="@GetClass()"
+    Variant="Variant.Outlined"
+    Label="@GetLabel()"
+    T="int"
+    MaxLength="2"
+    InputType="InputType.Number" /> *@
+</MudItem>

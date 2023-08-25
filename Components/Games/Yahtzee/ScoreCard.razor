@@ -1,0 +1,48 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+@using BlazorScoreCards.Client.Store.Games.Yahtzee;
+
+<MudPaper Class="pa-4">
+    <MudGrid>
+        <MudItem xs="6" Class="d-flex justify-end">
+            <MudText Typo="Typo.h5">Total:</MudText>
+        </MudItem>
+
+        <MudItem xs="6">
+            <MudText Typo="Typo.h5">@GetScore()</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="mt-1 mb-1" />
+
+    <MudGrid Spacing="1">
+        <MudItem xs="12">
+            <MudGrid Spacing="1">
+                <OptionRow Rank="YahtzeeRanks.Ones" />
+                <OptionRow Rank="YahtzeeRanks.Twos" />
+                <OptionRow Rank="YahtzeeRanks.Threes" />
+                <OptionRow Rank="YahtzeeRanks.Fours" />
+                <OptionRow Rank="YahtzeeRanks.Fives" />
+                <OptionRow Rank="YahtzeeRanks.Sixes" />
+                <MudItem xs="6" sm="2">
+                    <MudTextField T="string"
+                                  Class="@GetBonusClass()"
+                                  Label="@GetBonusLabel()"
+                                  Value="@GetBonusText()"
+                                  Variant="Variant.Outlined"
+                                  ReadOnly="true" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudDivider />
+                </MudItem>
+                <NumberRow Rank="YahtzeeRanks.ThreeOfAKind" />
+                <NumberRow Rank="YahtzeeRanks.FourOfAKind" />
+                <OptionRow Rank="YahtzeeRanks.FullHouse" />
+                <OptionRow Rank="YahtzeeRanks.SmallStraight" />
+                <OptionRow Rank="YahtzeeRanks.LargeStraight" />
+                <OptionRow Rank="YahtzeeRanks.Yahtzees" />
+                <NumberRow Rank="YahtzeeRanks.Chance" />
+            </MudGrid>
+        </MudItem>
+    </MudGrid>
+</MudPaper>

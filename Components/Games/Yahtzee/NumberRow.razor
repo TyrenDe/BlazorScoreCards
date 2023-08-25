@@ -1,0 +1,11 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<MudItem xs="6" sm="2" Class="d-flex justify-center">
+    <MudTextField @bind-Value="Score"
+                  Class="@GetClass()"
+                  Variant="Variant.Outlined"
+                  Label="@GetLabel()"
+                  T="string"
+                  MaxLength="2"
+                  InputType="InputType.Number" />
+</MudItem>
