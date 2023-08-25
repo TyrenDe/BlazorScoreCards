@@ -1,6 +1,7 @@
 ﻿using BlazorScoreCards.Client.Store.Games.Yahtzee;
 using Fluxor;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -62,14 +63,14 @@ public partial class ScoreCard
         }
     }
 
-    private string GetBonusClass()
+    private Variant GetBonusVariant()
     {
         var topSectionScores = GetScores(YahtzeeRanks.Ones, YahtzeeRanks.Twos, YahtzeeRanks.Threes, YahtzeeRanks.Fours, YahtzeeRanks.Fives, YahtzeeRanks.Sixes);
         if (topSectionScores.Any(s => s == null))
         {
-            return string.Empty;
+            return Variant.Outlined;
         }
 
-        return "rounded mud-theme-primary mud-primary-text";
+        return Variant.Filled;
     }
 }

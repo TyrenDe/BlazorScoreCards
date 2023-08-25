@@ -26,10 +26,9 @@
                 <OptionRow Rank="YahtzeeRanks.Sixes" />
                 <MudItem xs="6" sm="2">
                     <MudTextField T="string"
-                                  Class="@GetBonusClass()"
                                   Label="@GetBonusLabel()"
                                   Value="@GetBonusText()"
-                                  Variant="Variant.Outlined"
+                                  Variant="@GetBonusVariant()"
                                   ReadOnly="true" />
                 </MudItem>
                 <MudItem xs="12">

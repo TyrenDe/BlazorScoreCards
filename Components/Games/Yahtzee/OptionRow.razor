@@ -3,8 +3,7 @@
 <MudItem xs="6" sm="2" Class="d-flex justify-center">
     <MudSelect @bind-Value="Value"
                T="string"
-               Class="@GetClass()"
-               Variant="Variant.Outlined"
+               Variant="@GetVariant()"
                Label="@GetLabel()">
         @foreach (var opt in GetOptions())
         {
@@ -12,11 +11,4 @@
                            Value="@opt.Value">@opt.Text</MudSelectItem>
         }
     </MudSelect>
-    @* <MudTextField @bind-Value="Value"
-    Class="@GetClass()"
-    Variant="Variant.Outlined"
-    Label="@GetLabel()"
-    T="int"
-    MaxLength="2"
-    InputType="InputType.Number" /> *@
 </MudItem>

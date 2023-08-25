@@ -1,6 +1,7 @@
 ﻿using BlazorScoreCards.Client.Store.Games.Yahtzee;
 using Fluxor;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using System;
 using System.Collections.Generic;
 
@@ -33,6 +34,16 @@ public partial class OptionRow
         }
     }
 
+    private Variant GetVariant()
+    {
+        if (string.IsNullOrWhiteSpace(Value))
+        {
+            return Variant.Outlined;
+        }
+
+        return Variant.Filled;
+    }
+
     private string GetLabel()
     {
         return Rank switch
@@ -49,16 +60,6 @@ public partial class OptionRow
             YahtzeeRanks.Yahtzees => "Yahtzee",
             _ => string.Empty,
         };
-    }
-
-    private string GetClass()
-    {
-        if (string.IsNullOrWhiteSpace(Value))
-        {
-            return string.Empty;
-        }
-
-        return "rounded mud-theme-primary mud-primary-text";
     }
 
     private IEnumerable<(string? Value, string Text)> GetOptions()

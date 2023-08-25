@@ -1,6 +1,7 @@
 ﻿using BlazorScoreCards.Client.Store.Games.Yahtzee;
 using Fluxor;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 
 namespace BlazorScoreCards.Components.Games.Yahtzee;
 
@@ -48,13 +49,13 @@ public partial class NumberRow
         };
     }
 
-    private string GetClass()
+    private Variant GetVariant()
     {
         if (string.IsNullOrWhiteSpace(Score))
         {
-            return string.Empty;
+            return Variant.Outlined;
         }
 
-        return "rounded mud-theme-primary mud-primary-text";
+        return Variant.Filled;
     }
 }
