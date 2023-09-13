@@ -22,6 +22,10 @@ jobs:
         html_path: ${{ env.PUBLISH_DIR }}/index.html
         base_href: /BlazorScoreCards/
 
+    # copy index.html to 404.html to serve the same file when a file is not found
+    - name: copy index.html to 404.html
+      run: cp ${{ env.PUBLISH_DIR }}/index.html ${{ env.PUBLISH_DIR }}/404.html
+
     - name: GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v1.5.1

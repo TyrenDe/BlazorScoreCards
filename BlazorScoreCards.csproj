@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <!--<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>-->
+        <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <BlazorCacheBootResources>false</BlazorCacheBootResources>
         <DisableGitAutoCRLFInPublishOutput>true</DisableGitAutoCRLFInPublishOutput>
@@ -21,7 +21,7 @@
         <PackageReference Include="MudBlazor" Version="6.8.0" />
     </ItemGroup>
 
-    <!--<ItemGroup>
+    <ItemGroup>
         <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-    </ItemGroup>-->
+    </ItemGroup>
 </Project>
