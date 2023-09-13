@@ -6,6 +6,7 @@
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <BlazorCacheBootResources>false</BlazorCacheBootResources>
+        <DisableGitAutoCRLFInPublishOutput>true</DisableGitAutoCRLFInPublishOutput>
     </PropertyGroup>
 
     <ItemGroup Condition="$(Configuration)=='Debug'">
