@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <BlazorCacheBootResources>false</BlazorCacheBootResources>
     </PropertyGroup>
 
     <ItemGroup Condition="$(Configuration)=='Debug'">
