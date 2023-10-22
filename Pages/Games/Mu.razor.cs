@@ -36,8 +36,16 @@ public partial class Mu
         await DialogService.ShowAsync<StalemateDialog>("Score Stalemate", parameters, options);
     }
 
-    private void ResetAll()
+    private async Task ResetAll()
     {
-        Dispatcher.Dispatch(new ResetScoresAction());
+        var result = await DialogService.ShowMessageBox(
+            "Reset Scores?",
+            "Are you sure you want to reset the scores?",
+            yesText: "Yes", cancelText: "Cancel");
+
+        if (result.HasValue && result.Value)
+        {
+            Dispatcher.Dispatch(new ResetScoresAction());
+        }
     }
 }
