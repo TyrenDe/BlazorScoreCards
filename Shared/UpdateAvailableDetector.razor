@@ -1,0 +1,35 @@
+﻿@inject IJSRuntime _jsRuntime
+@inject ISnackbar Snackbar
+@inject NavigationManager NavigationManager
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await RegisterForUpdateAvailableNotification();
+    }
+
+    private async Task RegisterForUpdateAvailableNotification()
+    {
+        await _jsRuntime.InvokeAsync<object>(
+            identifier: "registerForUpdateAvailableNotification",
+            DotNetObjectReference.Create(this),
+            nameof(OnUpdateAvailable));
+    }
+
+    [JSInvokable(nameof(OnUpdateAvailable))]
+    public Task OnUpdateAvailable()
+    {
+        Snackbar.Configuration.SnackbarVariant = Variant.Filled;
+        Snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomLeft;
+        Snackbar.Add("A new version of the application is available. Click here to reload.", Severity.Info, config =>
+        {
+            config.Onclick = snackbar =>
+            {
+                NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+                return Task.CompletedTask;
+            };
+        });
+
+        return Task.CompletedTask;
+    }
+}
