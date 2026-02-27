@@ -1,6 +1,8 @@
 using Blazored.LocalStorage;
 using Fluxor;
+#if DEBUG
 using Fluxor.Blazor.Web.ReduxDevTools;
+#endif
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
