@@ -15,7 +15,7 @@ public partial class StalemateDialog
     private IDispatcher Dispatcher { get; set; } = default!;
 
     [CascadingParameter]
-    private MudDialogInstance MudDialog { get; set; } = default!;
+    private IMudDialogInstance MudDialog { get; set; } = default!;
 
     [Inject]
     private IState<PlayersState> PlayersState { get; set; } = default!;

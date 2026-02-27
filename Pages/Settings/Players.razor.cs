@@ -17,10 +17,10 @@ public partial class Players
     [Inject]
     private IDispatcher Dispatcher { get; set; } = default!;
 
-    private void ShowAddPlayerDialog()
+    private async void ShowAddPlayerDialog()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
-        var dialog = DialogService.Show<AddPlayerDialog>("Add Player", options);
+        var dialog = await DialogService.ShowAsync<AddPlayerDialog>("Add Player", options);
     }
 
     private void DeletePlayer(string playerName)

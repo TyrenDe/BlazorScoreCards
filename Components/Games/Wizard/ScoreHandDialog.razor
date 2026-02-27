@@ -1,0 +1,88 @@
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<MudDialog>
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-3">Hand @HandNumber — @CardsPerPlayer card(s) each</MudText>
+
+        <MudGrid Spacing="2" Class="mb-3">
+            <MudItem xs="6">
+                <MudSelect T="BlazorScoreCards.Client.Store.Games.Wizard.WizardTrump"
+                           @bind-Value="@Trump"
+                           Label="Trump Suit"
+                           Dense="true"
+                           Variant="Variant.Outlined">
+                    <MudSelectItem Value="BlazorScoreCards.Client.Store.Games.Wizard.WizardTrump.Hearts">♥ Hearts</MudSelectItem>
+                    <MudSelectItem Value="BlazorScoreCards.Client.Store.Games.Wizard.WizardTrump.Clubs">♣ Clubs</MudSelectItem>
+                    <MudSelectItem Value="BlazorScoreCards.Client.Store.Games.Wizard.WizardTrump.Spades">♠ Spades</MudSelectItem>
+                    <MudSelectItem Value="BlazorScoreCards.Client.Store.Games.Wizard.WizardTrump.Diamonds">♦ Diamonds</MudSelectItem>
+                    <MudSelectItem Value="BlazorScoreCards.Client.Store.Games.Wizard.WizardTrump.NoTrump">⊘ No Trump</MudSelectItem>
+                </MudSelect>
+            </MudItem>
+            <MudItem xs="6">
+                <MudSelect T="string"
+                           @bind-Value="@DealerName"
+                           Label="Dealer"
+                           Dense="true"
+                           Variant="Variant.Outlined">
+                    @foreach (var name in PlayerNames)
+                    {
+                        <MudSelectItem Value="@name">@name</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+        </MudGrid>
+
+        <MudSimpleTable Dense="true" Bordered="true" Class="mt-3">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th style="width:120px;">Bid</th>
+                    <th style="width:120px;">Tricks</th>
+                    <th style="width:100px;">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var name in PlayerNames)
+                {
+                    <tr>
+                        <td>@name</td>
+                        <td>
+                            <MudNumericField T="int"
+                                             Value="@GetBid(name)"
+                                             ValueChanged="(v) => SetBid(name, v)"
+                                             Min="0"
+                                             Max="@CardsPerPlayer"
+                                             Variant="Variant.Outlined"
+                                             Dense="true"
+                                             Margin="Margin.Dense" />
+                        </td>
+                        <td>
+                            <MudNumericField T="int"
+                                             Value="@GetTricks(name)"
+                                             ValueChanged="(v) => SetTricks(name, v)"
+                                             Min="0"
+                                             Max="@CardsPerPlayer"
+                                             Variant="Variant.Outlined"
+                                             Dense="true"
+                                             Margin="Margin.Dense" />
+                        </td>
+                        <td>
+                            <MudText Typo="Typo.body1" Color="@(GetPreviewScore(name) >= 0 ? Color.Success : Color.Error)">
+                                @GetPreviewScore(name)
+                            </MudText>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </MudSimpleTable>
+
+        @if (!string.IsNullOrEmpty(ValidationMessage))
+        {
+            <MudAlert Severity="Severity.Warning" Class="mt-3">@ValidationMessage</MudAlert>
+        }
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Submit" Disabled="@IsSubmitDisabled()">Score Hand</MudButton>
+    </DialogActions>
+</MudDialog>

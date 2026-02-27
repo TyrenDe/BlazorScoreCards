@@ -23,7 +23,7 @@
         Snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomLeft;
         Snackbar.Add("A new version of the application is available. Click here to reload.", Severity.Info, config =>
         {
-            config.Onclick = snackbar =>
+            config.OnClick = snackbar =>
             {
                 NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
                 return Task.CompletedTask;

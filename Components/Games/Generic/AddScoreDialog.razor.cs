@@ -16,7 +16,7 @@ public partial class AddScoreDialog
     private IDispatcher Dispatcher { get; set; } = default!;
 
     [CascadingParameter]
-    private MudDialogInstance MudDialog { get; set; } = default!;
+    private IMudDialogInstance MudDialog { get; set; } = default!;
 
     [EditorRequired]
     [Parameter]

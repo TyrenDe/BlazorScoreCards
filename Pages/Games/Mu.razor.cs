@@ -38,7 +38,7 @@ public partial class Mu
 
     private async Task ResetAll()
     {
-        var result = await DialogService.ShowMessageBox(
+        var result = await DialogService.ShowMessageBoxAsync(
             "Reset Scores?",
             "Are you sure you want to reset the scores?",
             yesText: "Yes", cancelText: "Cancel");

@@ -10,6 +10,7 @@
             <MudNavLink Href="games/mu" Match="NavLinkMatch.Prefix">Mü</MudNavLink>
             <MudNavLink Href="games/qwixx" Match="NavLinkMatch.Prefix">Qwixx</MudNavLink>
             <MudNavLink Href="games/split" Match="NavLinkMatch.Prefix">Split</MudNavLink>
+            <MudNavLink Href="games/wizard" Match="NavLinkMatch.Prefix">Wizard</MudNavLink>
             <MudNavLink Href="games/yahtzee" Match="NavLinkMatch.Prefix">Yahtzee</MudNavLink>
         </MudNavGroup>
 
@@ -17,7 +18,7 @@
             <MudNavLink Href="settings/players" Match="NavLinkMatch.Prefix">Players</MudNavLink>
             <div class="mud-nav-item">
                 <div class="mud-nav-link">
-                    <MudSwitch T="bool" Checked="@ThemeState.Value.IsDarkMode" Color="Color.Primary" CheckedChanged="@DarkModeCheckedChanged">Dark Mode</MudSwitch>
+                    <MudSwitch T="bool" Value="@ThemeState.Value.IsDarkMode" Color="Color.Primary" ValueChanged="@DarkModeCheckedChanged">Dark Mode</MudSwitch>
                 </div>
             </div>
         </MudNavGroup>

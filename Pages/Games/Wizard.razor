@@ -1,0 +1,143 @@
+﻿@page "/games/wizard"
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@using BlazorScoreCards.Client.Store.Games.Wizard
+@using BlazorScoreCards.Components.Games.Wizard
+
+<PageTitle>Wizard</PageTitle>
+
+@{
+    var selectedPlayers = PlayersState.Value.Players.Where(p => p.IsSelected).ToList();
+    var playerCount = selectedPlayers.Count;
+}
+
+@if (playerCount < 3 || playerCount > 6)
+{
+    <MudLink Href="settings/players">Go to the Players page and adjust the players (3-6).</MudLink>
+}
+else
+{
+    var maxHands = WizardGameState.GetMaxHands(playerCount);
+    var playerNames = selectedPlayers.Select(p => p.PlayerName).ToList();
+    var currentHand = WizardState.Value.CurrentHandNumber;
+    var gameComplete = currentHand > maxHands;
+
+    <MudPaper Elevation="2" Class="pa-4">
+        <MudSimpleTable Dense="true" Bordered="true" Style="table-layout: fixed;">
+            <thead>
+                <tr>
+                    <th style="width:50px; text-align:center;">#</th>
+                    <th style="width:40px; text-align:center;">Suit</th>
+                    @foreach (var name in playerNames)
+                    {
+                        <th style="text-align:center;">
+                            @name
+                            <br />
+                            <MudText Typo="Typo.caption" Color="Color.Primary">
+                                @WizardState.Value.GetTotalScore(name)
+                            </MudText>
+                        </th>
+                    }
+                    <th style="width:80px; text-align:center;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 1; i <= maxHands; i++)
+                {
+                    var handNumber = i;
+                    var scored = WizardState.Value.Hands.FirstOrDefault(h => h.HandNumber == handNumber);
+                    var isCurrentHand = handNumber == currentHand;
+
+                    <tr style="@(isCurrentHand ? "background-color: var(--mud-palette-primary-lighten); font-weight:bold;" : "")">
+                        <td style="text-align:center; font-weight:bold;">@handNumber</td>
+                        <td style="text-align:center; font-size:1.2em;">
+                            @if (scored != null)
+                            {
+                                <span style="color:@WizardGameState.GetSuitColor(scored.Trump);">@WizardGameState.GetSuitIcon(scored.Trump)</span>
+                            }
+                        </td>
+
+                        @if (scored != null)
+                        {
+                            @foreach (var name in playerNames)
+                            {
+                                var pr = scored.PlayerResults.FirstOrDefault(r => r.PlayerName == name);
+                                var runningScore = WizardState.Value.GetRunningScore(name, handNumber);
+                                var isDealer = scored.DealerName == name;
+
+                                <td style="text-align:center; position:relative;">
+                                    @if (isDealer)
+                                    {
+                                        <MudIcon Icon="@Icons.Material.Filled.Circle" Size="Size.Small"
+                                                 Style="position:absolute; top:2px; right:2px; font-size:10px;"
+                                                 Color="Color.Primary" />
+                                    }
+                                    @if (pr != null)
+                                    {
+                                        <MudText Typo="Typo.body2">@pr.Bid / @pr.Tricks</MudText>
+                                        <MudText Typo="Typo.caption" Color="@(pr.Score >= 0 ? Color.Success : Color.Error)">
+                                            @runningScore
+                                        </MudText>
+                                    }
+                                </td>
+                            }
+                            <td style="text-align:center;">
+                                <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success" Size="Size.Small" />
+                            </td>
+                        }
+                        else
+                        {
+                            @foreach (var name in playerNames)
+                            {
+                                <td style="text-align:center;">
+                                    @if (isCurrentHand)
+                                    {
+                                        <MudText Typo="Typo.caption" Color="Color.Default">—</MudText>
+                                    }
+                                </td>
+                            }
+                            <td style="text-align:center;">
+                                @if (isCurrentHand && !gameComplete)
+                                {
+                                    <MudIconButton Icon="@Icons.Material.Filled.Edit"
+                                                   Size="Size.Small"
+                                                   Color="Color.Primary"
+                                                   OnClick="() => ScoreHand()" />
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </MudSimpleTable>
+    </MudPaper>
+
+    <MudGrid Spacing="3" Class="mt-3">
+        @if (!gameComplete)
+        {
+            <MudItem>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ScoreHand">
+                    Score Hand @currentHand
+                </MudButton>
+            </MudItem>
+        }
+        else
+        {
+            <MudItem>
+                <MudAlert Severity="Severity.Success">Game Complete!</MudAlert>
+            </MudItem>
+        }
+        @if (WizardState.Value.Hands.Count > 0)
+        {
+            <MudItem>
+                <MudButton Color="Color.Warning" Variant="Variant.Filled" OnClick="UndoLastHand">
+                    Undo Last Hand
+                </MudButton>
+            </MudItem>
+        }
+        <MudItem>
+            <MudButton Color="Color.Error" Variant="Variant.Filled" OnClick="ResetAll">
+                Reset All
+            </MudButton>
+        </MudItem>
+    </MudGrid>
+}

@@ -16,7 +16,7 @@ public partial class AddPlayerDialog
     private IDispatcher Dispatcher { get; set; } = default!;
 
     [CascadingParameter]
-    private MudDialogInstance MudDialog { get; set; } = default!;
+    private IMudDialogInstance MudDialog { get; set; } = default!;
 
     private string PlayerName { get; set; } = string.Empty;
 

@@ -3,7 +3,7 @@
 
 <PageTitle>Players</PageTitle>
 
-<MudList>
+<MudList T="string">
     @if (PlayersState.Value.IsLoading)
     {
         <MudText>Loading...</MudText>
@@ -20,9 +20,9 @@
         {
             @foreach (var player in PlayersState.Value.Players)
             {
-                <MudListItem Dense="true" DisableGutters="true">
+                <MudListItem Dense="true" Gutters="false">
                     <MudStack Row="true" AlignItems="AlignItems.Center">
-                        <MudCheckBox T="bool" Checked="player.IsSelected" CheckedChanged="((e) => TogglePlayer(player.PlayerName))" />
+                        <MudCheckBox T="bool" Value="player.IsSelected" ValueChanged="((e) => TogglePlayer(player.PlayerName))" />
                         <MudText>@player.PlayerName</MudText>
                         <MudIconButton Icon="@Icons.Material.Filled.Delete" OnClick="((e) => DeletePlayer(player.PlayerName))" />
                     </MudStack>

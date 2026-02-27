@@ -81,23 +81,23 @@
                 <MudItem xs="2" Class="d-flex align-center justify-center">
                     <MudCheckBox 
                         T="bool"
-                        Checked="@IsChief(player.PlayerName)" 
+                        Value="@IsChief(player.PlayerName)" 
                         Disabled="@IsChiefDisabled(player.PlayerName)" 
-                        CheckedChanged="(e) => SetChief(e, player.PlayerName)"/>
+                        ValueChanged="(e) => SetChief(e, player.PlayerName)" />
                 </MudItem>
                 <MudItem xs="2" Class="d-flex align-center justify-center">
                     <MudCheckBox 
                         T="bool"
-                        Checked="@IsVice(player.PlayerName)" 
+                        Value="@IsVice(player.PlayerName)" 
                         Disabled="@IsViceDisabled(player.PlayerName)"
-                        CheckedChanged="(e) => SetVice(e, player.PlayerName)" />
+                        ValueChanged="(e) => SetVice(e, player.PlayerName)" />
                 </MudItem>
                 <MudItem xs="2" Class="d-flex align-center justify-center">
                     <MudCheckBox 
                         T="bool" 
-                        Checked="@IsPartner(player.PlayerName)" 
+                        Value="@IsPartner(player.PlayerName)" 
                         Disabled="@IsPartnerDisabled(player.PlayerName)"
-                        CheckedChanged="(e) => SetPartner(e, player.PlayerName)" />
+                        ValueChanged="(e) => SetPartner(e, player.PlayerName)" />
                 </MudItem>
                 <MudItem xs="4" Class="d-flex align-center justify-center">
                     <MudTextField T="int" Label="Points" InputType="InputType.Number" Text="@GetScoreString(player.PlayerName)" TextChanged="@((e) => SetScore(e, player.PlayerName))"/>

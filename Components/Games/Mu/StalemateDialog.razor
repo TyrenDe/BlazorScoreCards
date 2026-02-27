@@ -27,16 +27,16 @@
                 <MudItem xs="4" Class="d-flex align-center justify-center">
                     <MudCheckBox 
                         T="bool"
-                        Checked="@IsLastBidder(player.PlayerName)"
+                        Value="@IsLastBidder(player.PlayerName)"
                                  Disabled="@IsLastBidderDisabled(player.PlayerName)"
-                                 CheckedChanged="(e) => SetLastBidder(e, player.PlayerName)"/>
+                                 ValueChanged="(e) => SetLastBidder(e, player.PlayerName)" />
                 </MudItem>
                 <MudItem xs="4" Class="d-flex align-center justify-center">
                     <MudCheckBox 
                         T="bool"
-                        Checked="@IsHighestBidder(player.PlayerName)"
+                        Value="@IsHighestBidder(player.PlayerName)"
                                  Disabled="@IsHighestBidderDisabled(player.PlayerName)"
-                        CheckedChanged="(e) => SetHighestBidder(e, player.PlayerName)" />
+                                 ValueChanged="(e) => SetHighestBidder(e, player.PlayerName)" />
                 </MudItem>
             }
         </MudGrid>

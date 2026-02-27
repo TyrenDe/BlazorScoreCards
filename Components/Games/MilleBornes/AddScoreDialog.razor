@@ -21,7 +21,7 @@
                             Right of Way
                         </MudHidden>
                     </MudItem>
-                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Checked="@PlayedRightOfWay" /></MudItem>
+                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Value="@PlayedRightOfWay" /></MudItem>
                     <MudItem xs="4" Class="header d-flex align-center justify-start pl-5">-</MudItem>
                     <MudItem xs="1"></MudItem>
 
@@ -33,8 +33,8 @@
                             Driving Ace
                         </MudHidden>
                     </MudItem>
-                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Checked="@PlayedDrivingAce" /></MudItem>
-                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Checked="@CFDrivingAce" Disabled="@Invert(PlayedDrivingAce)" /></MudItem>
+                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Value="@PlayedDrivingAce" /></MudItem>
+                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Value="@CFDrivingAce" Disabled="@Invert(PlayedDrivingAce)" /></MudItem>
                     <MudItem xs="1"></MudItem>
 
                     <MudItem xs="5" Class="header d-flex align-center justify-end">
@@ -45,8 +45,8 @@
                             Extra Tank
                         </MudHidden>
                     </MudItem>
-                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Checked="@PlayedExtraTank" /></MudItem>
-                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Checked="@CFExtraTank" Disabled="@Invert(PlayedExtraTank)" /></MudItem>
+                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Value="@PlayedExtraTank" /></MudItem>
+                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Value="@CFExtraTank" Disabled="@Invert(PlayedExtraTank)" /></MudItem>
                     <MudItem xs="1"></MudItem>
 
                     <MudItem xs="5" Class="header d-flex align-center justify-end">
@@ -57,8 +57,8 @@
                             Puncture Proof
                         </MudHidden>
                     </MudItem>
-                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Checked="@PlayedPunctureProof" /></MudItem>
-                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Checked="@CFPunctureProof" Disabled="@Invert(PlayedPunctureProof)" /></MudItem>
+                    <MudItem xs="2"><MudCheckBox T="bool" @bind-Value="@PlayedPunctureProof" /></MudItem>
+                    <MudItem xs="4"><MudCheckBox T="bool" @bind-Value="@CFPunctureProof" Disabled="@Invert(PlayedPunctureProof)" /></MudItem>
                     <MudItem xs="1"></MudItem>
                 </MudGrid>
             </MudItem>
@@ -71,7 +71,7 @@
                         <MudHidden Breakpoint="Breakpoint.Xs">
                             Delayed Action
                         </MudHidden>
-                        <MudCheckBox T="bool" @bind-Checked="@DelayedAction"/>
+                        <MudCheckBox T="bool" @bind-Value="@DelayedAction" />
                     </MudItem>
 
                     <MudItem xs="12" Class="header d-flex align-center justify-center">
@@ -81,7 +81,7 @@
                         <MudHidden Breakpoint="Breakpoint.Xs">
                             Safe Trip
                         </MudHidden>
-                        <MudCheckBox T="bool" @bind-Checked="@SafeTrip" />
+                        <MudCheckBox T="bool" @bind-Value="@SafeTrip" />
                     </MudItem>
 
                     <MudItem xs="12" Class="header d-flex align-center justify-center">
@@ -91,7 +91,7 @@
                         <MudHidden Breakpoint="Breakpoint.Xs">
                             Shutout
                         </MudHidden>
-                        <MudCheckBox T="bool" @bind-Checked="@Shutout" />
+                        <MudCheckBox T="bool" @bind-Value="@Shutout" />
                     </MudItem>
                 </MudGrid>
             </MudItem>
