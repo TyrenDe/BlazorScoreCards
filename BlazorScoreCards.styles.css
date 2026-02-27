@@ -1,0 +1,97 @@
+/* /Components/Games/Qwixx/ColorRow.razor.rz.scp.css */
+[b-wwaigv89f9] .row-color {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: -1px 1px 2px white, -1px -1px 2px white, 1px -1px 2px white, 1px 1px 2px white;
+}
+
+[b-wwaigv89f9] .row-color-red {
+    background-color: red;
+}
+
+[b-wwaigv89f9] .row-color-yellow {
+    background-color: yellow;
+}
+
+[b-wwaigv89f9] .row-color-green {
+    background-color: green;
+}
+
+[b-wwaigv89f9] .row-color-blue {
+    background-color: blue;
+}
+/* /Components/Games/Qwixx/ScoreRow.razor.rz.scp.css */
+[b-q9qk19tdna] .row-score {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: -1px 1px 2px white, -1px -1px 2px white, 1px -1px 2px white, 1px 1px 2px white;
+    width: 56px;
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+}
+
+[b-q9qk19tdna] .row-score-red {
+    background-color: red;
+}
+
+[b-q9qk19tdna] .row-score-yellow {
+    background-color: yellow;
+}
+
+[b-q9qk19tdna] .row-score-green {
+    background-color: green;
+}
+
+[b-q9qk19tdna] .row-score-blue {
+    background-color: blue;
+}
+
+[b-q9qk19tdna] .row-score-negative {
+    background-color: dimgrey;
+}
+
+[b-q9qk19tdna] .row-score-total {
+    font-size: 32px;
+    width: auto;
+}
+/* /Components/Games/SevenWonders/AddScoreDialog.razor.rz.scp.css */
+[b-litbkiseos] .military .mud-icon-root.mud-svg-icon {
+    fill: red !important;
+}
+
+[b-litbkiseos] .money .mud-icon-root.mud-svg-icon {
+    fill: rosybrown !important;
+}
+
+[b-litbkiseos] .wonders .mud-icon-root.mud-svg-icon {
+    fill: silver !important;
+}
+
+[b-litbkiseos] .civic .mud-icon-root.mud-svg-icon {
+    fill: blue !important;
+}
+
+[b-litbkiseos] .commerce .mud-icon-root.mud-svg-icon {
+    fill: gold !important;
+}
+
+[b-litbkiseos] .guild .mud-icon-root.mud-svg-icon {
+    fill: purple !important;
+}
+
+[b-litbkiseos] .science .mud-icon-root.mud-svg-icon {
+    fill: green !important;
+}
+/* /Shared/AppBar.razor.rz.scp.css */
+[b-l3f4073s6o] .md-fab-bottom-left {
+    position: fixed !important;
+    bottom: 5px;
+    right: 5px;
+    z-index: 10000;
+}
+
+[b-l3f4073s6o] .md-fab-faded {
+    opacity: 0.5;
+}
