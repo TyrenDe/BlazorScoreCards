@@ -1,4 +1,5 @@
-﻿using BlazorScoreCards.Client.Store.Players;
+﻿using System.Threading.Tasks;
+using BlazorScoreCards.Client.Store.Players;
 using BlazorScoreCards.Components.Settings.Players;
 using Fluxor;
 using Microsoft.AspNetCore.Components;
