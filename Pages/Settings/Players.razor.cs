@@ -17,7 +17,7 @@ public partial class Players
     [Inject]
     private IDispatcher Dispatcher { get; set; } = default!;
 
-    private async void ShowAddPlayerDialog()
+    private async Task ShowAddPlayerDialog()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
         var dialog = await DialogService.ShowAsync<AddPlayerDialog>("Add Player", options);
