@@ -101,6 +101,11 @@ public partial class StalemateDialog
             return true;
         }
 
+        if (_HighestBidder.Count == 0)
+        {
+            return true;
+        }
+
         return false;
     }
 }
