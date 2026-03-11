@@ -31,7 +31,7 @@ public partial class Mu
 
     private async Task Stalemate()
     {
-        var parameters = new DialogParameters<AddScoreDialog>();
+        var parameters = new DialogParameters<StalemateDialog>();
         var options = new DialogOptions { CloseOnEscapeKey = true };
         await DialogService.ShowAsync<StalemateDialog>("Score Stalemate", parameters, options);
     }
