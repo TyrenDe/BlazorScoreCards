@@ -6,7 +6,7 @@ window.updateAvailable = new Promise((resolve, reject) => {
         return;
     }
 
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register(new URL('service-worker.js', document.baseURI).href)
         .then(registration => {
             console.info(`Service worker registration successful (scope: ${registration.scope})`);
 
