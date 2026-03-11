@@ -1,14 +1,14 @@
 export function getOrientation() {
     if (screen.orientation.type.startsWith("portrait-")) {
         if (screen.width > 1000) {
-            return 0; // Destkop
+            return 0; // Desktop
         }
 
         return 1; // Portrait
     }
 
     if (screen.height > 1000) {
-        return 0; // Destkop
+        return 0; // Desktop
     }
 
     return 2; // Landscape
