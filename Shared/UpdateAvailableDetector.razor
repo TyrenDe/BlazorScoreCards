@@ -1,8 +1,11 @@
 ﻿@inject IJSRuntime _jsRuntime
 @inject ISnackbar Snackbar
 @inject NavigationManager NavigationManager
+@implements IDisposable
 
 @code {
+    private DotNetObjectReference<UpdateAvailableDetector>? _objRef;
+
     protected override async Task OnInitializedAsync()
     {
         await RegisterForUpdateAvailableNotification();
@@ -10,9 +13,10 @@
 
     private async Task RegisterForUpdateAvailableNotification()
     {
+        _objRef = DotNetObjectReference.Create(this);
         await _jsRuntime.InvokeAsync<object>(
             identifier: "registerForUpdateAvailableNotification",
-            DotNetObjectReference.Create(this),
+            _objRef,
             nameof(OnUpdateAvailable));
     }
 
@@ -31,5 +35,10 @@
         });
 
         return Task.CompletedTask;
+    }
+
+    public void Dispose()
+    {
+        _objRef?.Dispose();
     }
 }
