@@ -37,14 +37,11 @@ public partial class AddScoreDialog
         }
     }
 
-    private async Task<bool> HandleKeyDown(KeyboardEventArgs e)
+    private async Task HandleKeyDown(KeyboardEventArgs e)
     {
         if (string.Equals(e.Key, "Enter", StringComparison.OrdinalIgnoreCase))
         {
             await UpdateScore();
-            return false;
         }
-
-        return true;
     }
 }
