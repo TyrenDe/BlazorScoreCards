@@ -71,8 +71,11 @@ public partial class AddScoreDialog
 
     private void SetScore(string score, string playerName)
     {
-        _Points[playerName] = int.Parse(score);
-        StateHasChanged();
+        if (int.TryParse(score, out var value))
+        {
+            _Points[playerName] = value;
+            StateHasChanged();
+        }
     }
 
     private string _Chief = string.Empty;
