@@ -55,13 +55,13 @@ public class Effects
 
     private async Task<Dictionary<string, int>> LoadScoresAsync()
     {
-        var players = await _LocalStorageService.GetItemAsync<IReadOnlyDictionary<string, int>>(ScoresKey);
-        if (players == null)
+        var savedScores = await _LocalStorageService.GetItemAsync<IReadOnlyDictionary<string, int>>(ScoresKey);
+        if (savedScores == null)
         {
-            players = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            savedScores = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
         }
 
-        return new Dictionary<string, int>(players, StringComparer.OrdinalIgnoreCase);
+        return new Dictionary<string, int>(savedScores, StringComparer.OrdinalIgnoreCase);
     }
 
     private async Task UpdateAndDispatchAsync(IDispatcher dispatcher, IReadOnlyDictionary<string, int> scores)
