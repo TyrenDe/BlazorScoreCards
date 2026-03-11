@@ -96,6 +96,11 @@ public partial class StalemateDialog
 
     private bool IsOkDisabled()
     {
+        if (string.IsNullOrEmpty(_LastBidder))
+        {
+            return true;
+        }
+
         return false;
     }
 }
