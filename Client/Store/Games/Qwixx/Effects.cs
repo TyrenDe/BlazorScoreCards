@@ -85,7 +85,7 @@ public class Effects
         var scores = await LoadScoresAsync();
 
         var newIsLocked = new Dictionary<QwixxRanks, bool>(scores.IsLocked);
-        newIsLocked[action.Rank] = newIsLocked[action.Rank] = true;
+        newIsLocked[action.Rank] = true;
 
         scores = scores with { IsLocked = newIsLocked };
 
@@ -98,7 +98,7 @@ public class Effects
         var scores = await LoadScoresAsync();
 
         var newIsLocked = new Dictionary<QwixxRanks, bool>(scores.IsLocked);
-        newIsLocked[action.Rank] = newIsLocked[action.Rank] = false;
+        newIsLocked[action.Rank] = false;
 
         scores = scores with { IsLocked = newIsLocked };
 
