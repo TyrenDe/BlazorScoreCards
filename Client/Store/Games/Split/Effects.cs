@@ -30,7 +30,7 @@ public class Effects
         var scores = await LoadScoresAsync();
 
         var newScores = new Dictionary<SplitRanks, int>(scores.Scores);
-        newScores[action.Rank] = (newScores[action.Rank] + 1) % 5;
+        newScores[action.Rank] = (newScores[action.Rank] + 1) % 6;
 
         scores = scores with { Scores = newScores };
 
