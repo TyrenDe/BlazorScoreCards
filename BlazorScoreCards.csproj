@@ -4,6 +4,7 @@
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+        <!-- Required by JSImport/JSExport interop attributes (see App.razor.cs) -->
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <BlazorCacheBootResources>false</BlazorCacheBootResources>
         <DisableGitAutoCRLFInPublishOutput>true</DisableGitAutoCRLFInPublishOutput>
