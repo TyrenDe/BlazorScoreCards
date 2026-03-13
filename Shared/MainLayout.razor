@@ -1,6 +1,10 @@
-﻿@inherits Fluxor.Blazor.Web.Components.FluxorLayout
+@inherits Fluxor.Blazor.Web.Components.FluxorLayout
 
-<MudThemeProvider Theme="@DefaultTheme" IsDarkMode="@ThemeState.Value.IsDarkMode" />
+<MudThemeProvider @ref="_themeProvider"
+                  Theme="@DefaultTheme"
+                  IsDarkMode="@CurrentIsDarkMode"
+                  IsDarkModeChanged="@OnDarkModeChanged"
+                  ObserveSystemDarkModeChange="@UseSystemTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudPopoverProvider />
