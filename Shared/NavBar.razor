@@ -1,4 +1,5 @@
-﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+﻿@using BlazorScoreCards.Client.Store.Theme
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
 <MudDrawer Open="@NavBarState.Value.DrawerOpen" OpenChanged="@OpenChanged" ClipMode="DrawerClipMode.Docked" Anchor="Anchor.Right">
     <MudNavMenu>
@@ -18,7 +19,18 @@
             <MudNavLink Href="settings/players" Match="NavLinkMatch.Prefix">Players</MudNavLink>
             <div class="mud-nav-item">
                 <div class="mud-nav-link">
-                    <MudSwitch T="bool" Value="@ThemeState.Value.IsDarkMode" Color="Color.Primary" ValueChanged="@DarkModeCheckedChanged">Dark Mode</MudSwitch>
+                    <MudSelect T="ThemePreference"
+                               Label="Theme"
+                               Value="@ThemeState.Value.Preference"
+                               ValueChanged="@ThemePreferenceChanged"
+                               Dense="true"
+                               Margin="Margin.Dense"
+                               Variant="Variant.Text"
+                               FullWidth="true">
+                        <MudSelectItem T="ThemePreference" Value="@ThemePreference.System">System</MudSelectItem>
+                        <MudSelectItem T="ThemePreference" Value="@ThemePreference.Light">Light</MudSelectItem>
+                        <MudSelectItem T="ThemePreference" Value="@ThemePreference.Dark">Dark</MudSelectItem>
+                    </MudSelect>
                 </div>
             </div>
         </MudNavGroup>

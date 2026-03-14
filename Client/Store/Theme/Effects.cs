@@ -1,4 +1,4 @@
-﻿using Blazored.LocalStorage;
+using Blazored.LocalStorage;
 using Fluxor;
 using System.Threading.Tasks;
 
@@ -6,7 +6,7 @@ namespace BlazorScoreCards.Client.Store.Theme;
 
 public class Effects
 {
-    private const string DarkModeKey = "darkmode";
+    private const string ThemePreferenceKey = "darkmode";
 
     private readonly ILocalStorageService _LocalStorageService;
 
@@ -18,20 +18,28 @@ public class Effects
     [EffectMethod]
     public async Task EffectThemeState(LoadInitialStateAction action, IDispatcher dispatcher)
     {
-        var current = true;
-        var currentValue = await _LocalStorageService.GetItemAsStringAsync(DarkModeKey);
+        var current = ThemePreference.System;
+        var currentValue = await _LocalStorageService.GetItemAsStringAsync(ThemePreferenceKey);
+
         if (!string.IsNullOrWhiteSpace(currentValue))
         {
-            bool.TryParse(currentValue, out current);
+            if (System.Enum.TryParse<ThemePreference>(currentValue, true, out var currentPreference))
+            {
+                current = currentPreference;
+            }
+            else if (bool.TryParse(currentValue, out var isDarkMode))
+            {
+                current = isDarkMode ? ThemePreference.Dark : ThemePreference.Light;
+            }
         }
 
-        dispatcher.Dispatch(new SetDarkModeCompleteAction(current));
+        dispatcher.Dispatch(new SetThemePreferenceCompleteAction(current));
     }
 
     [EffectMethod]
-    public async Task EffectThemeState(SetDarkModeAction action, IDispatcher dispatcher)
+    public async Task EffectThemeState(SetThemePreferenceAction action, IDispatcher dispatcher)
     {
-        await _LocalStorageService.SetItemAsStringAsync(DarkModeKey, action.IsDarkMode.ToString());
-        dispatcher.Dispatch(new SetDarkModeCompleteAction(action.IsDarkMode));
+        await _LocalStorageService.SetItemAsStringAsync(ThemePreferenceKey, action.Preference.ToString());
+        dispatcher.Dispatch(new SetThemePreferenceCompleteAction(action.Preference));
     }
 }
