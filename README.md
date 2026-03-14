@@ -55,4 +55,4 @@ The app will be available at the URL shown in the console output (typically `htt
 - [Blazor WebAssembly](https://learn.microsoft.com/aspnet/core/blazor/) (.NET 10)
 - [MudBlazor](https://mudblazor.com/) for Material Design UI components
 - [Fluxor](https://github.com/mrpmorris/Fluxor) for Redux-style state management
-- [Blazored.LocalStorage](https://github.com/Blazored/LocalStorage) for browser local storage
+- [Blazor.Storage](https://github.com/mmsoftpl/Blazor.Storage) for browser local storage
