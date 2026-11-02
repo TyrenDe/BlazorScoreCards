@@ -25,8 +25,8 @@ public partial class NavBar
         }
     }
 
-    private void DarkModeCheckedChanged(bool newValue)
+    private void ThemePreferenceChanged(ThemePreference newValue)
     {
-        Dispatcher.Dispatch(new SetDarkModeAction(newValue));
+        Dispatcher.Dispatch(new SetThemePreferenceAction(newValue));
     }
 }
