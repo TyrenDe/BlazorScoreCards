@@ -1,15 +1,18 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<MudDialog>
+<MudDialog DefaultFocus="DefaultFocus.FirstChild">
     <DialogContent>
-        <MudTextField
-            @ref="textField"
-            FullWidth="true"
-            Required="true"
-            AutoFocus="true"
-            @bind-Value="@PlayerName"
-            @onkeydown="HandleKeyDown"
-            Label="Player or Team Name"/>
+        <div @onkeydown:stopPropagation="true"
+             @onkeyup:stopPropagation="true">
+            <MudTextField
+                @ref="textField"
+                FullWidth="true"
+                Required="true"
+                AutoFocus="true"
+                @bind-Value="@PlayerName"
+                OnKeyUp="HandleKeyUp"
+                Label="Player or Team Name"/>
+        </div>
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>

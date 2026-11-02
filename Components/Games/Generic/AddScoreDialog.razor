@@ -1,15 +1,18 @@
-﻿<MudDialog>
+﻿<MudDialog DefaultFocus="DefaultFocus.FirstChild">
     <DialogContent>
-        <MudTextField
-            @ref="textField"
-            T="string"
-            InputType="InputType.Number"
-            FullWidth="true"
-            Required="true"
-            AutoFocus="true"
-            @bind-Value="@Score"
-            @onkeydown="HandleKeyDown"
-            Label="Points" />
+        <div @onkeydown:stopPropagation="true"
+             @onkeyup:stopPropagation="true">
+            <MudTextField @ref="textField"
+                T="string"
+                InputType="InputType.Number"
+                FullWidth="true"
+                Required="true"
+                AutoFocus="true"
+                @bind-Value="@Score"
+                Immediate="true"
+                OnKeyUp="HandleKeyUp"
+                Label="Points" />
+        </div>
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>

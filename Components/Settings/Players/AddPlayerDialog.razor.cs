@@ -29,12 +29,13 @@ public partial class AddPlayerDialog
         if (!string.IsNullOrWhiteSpace(PlayerName))
         {
             Dispatcher.Dispatch(new AddPlayerAction(PlayerName));
+            MudDialog.Close();
         }
 
         PlayerName = string.Empty;
     }
 
-    private async Task HandleKeyDown(KeyboardEventArgs e)
+    private async Task HandleKeyUp(KeyboardEventArgs e)
     {
         if (string.Equals(e.Key, "Enter", StringComparison.OrdinalIgnoreCase))
         {

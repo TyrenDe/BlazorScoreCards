@@ -37,7 +37,7 @@ public partial class AddScoreDialog
         }
     }
 
-    private async Task HandleKeyDown(KeyboardEventArgs e)
+    private async Task HandleKeyUp(KeyboardEventArgs e)
     {
         if (string.Equals(e.Key, "Enter", StringComparison.OrdinalIgnoreCase))
         {
